@@ -1,0 +1,57 @@
+header{
+	text-align: center;
+}
+
+main{
+	font-size: 2rem;
+	margin-top: 2rem;
+}
+
+
+ol{
+	counter-reset: pregunta;
+	padding: 1rem;
+}
+
+li{
+	list-style-type: none;
+	font-size: 1.5rem;
+}
+
+li:before{
+	counter-increment: pregunta;
+	content: "Pregunta " counter(pregunta);
+	font-weight: bold;
+	display: block;
+}
+
+.voto{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+	width: 100%;
+	margin-top: 1rem;
+	margin-bottom: 5rem;
+	font-size: 3rem;
+}
+
+.voto_item{
+	padding: 0.5rem;
+	border: 0 solid green;
+	border-radius: 80%;
+	cursor: pointer;
+}
+
+#btn_terminar{
+	background-color: green;
+	color: white;
+	border-radius: 2rem;
+	padding: 2rem;
+	margin: 1rem 3rem 5rem 3rem;
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
