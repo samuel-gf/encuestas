@@ -49,13 +49,13 @@ for ($i=0; $i<sizeof($arr_cuerpo_tmp); $i++){
 		switch($arr_cuerpo[$i+1]["tipo"]){
 		case "u5":
 			echo "<li>".$arr_cuerpo[$i+1]["enunciado"]."</li>\n";
-			echo "<div id='p".($i+1)."' class='voto' data-value=''>\n";
+			echo "<div id='p".($i+1)."' class='voto' data-respuesta=''>\n";
 			echo "<div id='p".($i+1)."-1' class='voto_item'>&#128534;</div>\n";
 			echo "<div id='p".($i+1)."-2' class='voto_item'>&#128551;</div>\n";
 			echo "<div id='p".($i+1)."-3' class='voto_item'>&#128528;</div>\n";
 			echo "<div id='p".($i+1)."-4' class='voto_item'>&#128512;</div>\n";
 			echo "<div id='p".($i+1)."-5' class='voto_item'>&#128151;</div>\n";
-			echo "</div>\n";
+			echo "</div>\n\n";
 			break;
 		}
 	}	// end for

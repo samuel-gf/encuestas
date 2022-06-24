@@ -2,23 +2,39 @@ var arr_resp = [];
 var tmp;
 
 document.addEventListener('DOMContentLoaded', function(){ 
-	// Votar caras
+	// Pinchar sobre una cara
 	var caras = document.querySelectorAll(".voto_item");
-	
 	for (let i=0; i<caras.length; i++){
 		caras[i].addEventListener("click", function (){
 			let cod = this.id.substring(1).split("-");
 			let id = cod[0];
 			let resp = cod[1];
+			let pregunta = document.getElementById("p"+id);
 			arr_resp[id] = resp;
-			for (let j=1; j<=5; j++){
-				let item = document.getElementById("p"+id+"-"+j);
-				if (j != resp){
-					item.style.opacity = "0.15";
-					item.style.borderWidth = "0";
-				} else {
-					item.style.opacity = "1";
-					item.style.borderWidth = "3px";
+			if (pregunta.dataset.respuesta == resp){
+				// Ha pinchado sobre la que ya estaba seleccionada
+				// Habilitar todos, borrar la respuesta y salir
+				for (let j=1; j<=5; j++){
+					let item = document.getElementById("p"+id+"-"+j);
+					habilita(item);
+					pregunta.dataset.respuesta = "";
+				}
+			} else {
+				// Ha pinchado sobre uno que aún no estaba seleccionado
+				// Habilita el pinchado y deshabilitar todos los demás
+				for (let j=1; j<=5; j++){
+					let item = document.getElementById("p"+id+"-"+j);
+					// Recorre los cinco items y para cada uno comprueba si es la seleccionada
+					// para deshabilitarla o habilitarla
+					if (j != resp){
+						// No es la seleccionada
+						deshabilita(item);
+					} else {
+						// Es la seleccionada
+						habilita(item);
+						item.style.borderWidth = "3px";
+						pregunta.dataset.respuesta = j;
+					}
 				}
 			}
 		});
@@ -55,3 +71,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	
 }, false);
+
+
+function deshabilita(item){
+	item.style.opacity = "0.15";
+	item.style.borderWidth = "0";
+}
+
+function habilita(item){
+	item.style.opacity = "1";
+	item.style.borderWidth = "0";
+}

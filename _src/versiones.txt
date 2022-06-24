@@ -1,3 +1,4 @@
+1.04	Puede desmarcar un elemento seleccionado. Las respuestas se memorizan en cada item
 1.03	Cabecera dentro de fichero de preguntas y respuestas y nueva organización ficheros de P y R
 1.02	Secciones contenedores dentro de main que muestran los mensajes
 1.01	Control de versiones
