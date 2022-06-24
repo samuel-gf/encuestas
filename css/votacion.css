@@ -7,6 +7,14 @@ main{
 	margin-top: 2rem;
 }
 
+section#preguntas{
+	display: block;
+}
+
+section#terminado{
+	display: none;
+}
+
 
 ol{
 	counter-reset: pregunta;

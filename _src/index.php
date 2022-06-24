@@ -12,12 +12,12 @@
 	</head>
 <body>
 
-<header>
-	<h1>Encuesta alumnado</h1>
-</header>
 
 
 <main>
+<section id="preguntas">
+<header><h1>Encuesta alumnado</h1></header>
+
 <ol>
 <?php 
 	$txt = file_get_contents("../preguntas/01.txt");
@@ -39,6 +39,14 @@
 
 
 <div id="btn_terminar">Terminar encuesta</div>
+</section>	<!-- Preguntas -->
+
+<!-- ********************************************************* -->
+<section id="terminado">
+<header><h1>Encuesta terminada</h1></header>
+
+<p>Muchas gracias por tu tiempo</p>
+</section>
 </main>
 
 </body>
