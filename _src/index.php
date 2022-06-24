@@ -12,7 +12,7 @@ include("lib.php");
 <meta name="description" content="Encuesta alumnado">
 <link rel="stylesheet" type="text/css" href="css/normalize.css">
 <link rel="stylesheet" type="text/css" href="css/votacion.css">
-<script type="text/javascript" src="js/voto.js"></script>
+<script type="text/javascript" src="js/encuesta.js"></script>
 <title>Encuesta alumnado</title>
 </head>
 <body data-id="<?php echo $id_encuesta; ?>">
