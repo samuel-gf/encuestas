@@ -20,7 +20,7 @@
 <main>
 <ol>
 <?php 
-	$txt = file_get_contents("../preguntas.txt");
+	$txt = file_get_contents("../preguntas/01.txt");
 	$arr = explode("\n", $txt);
 	for ($i=0; $arr[$i] !== ""; $i++){
 ?>
