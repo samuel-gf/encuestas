@@ -1,7 +1,8 @@
 all: ../index.html
 
-../index.html: index.php ../data/01.p.txt
-	php index.php > ../index.html
+../index.html: id=01
+../index.html: index.php
+	php index.php $(id) > ../$(id).html
 
 clear_resp:
 	rm -f ../data/*.r.txt

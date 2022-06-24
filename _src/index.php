@@ -1,5 +1,7 @@
 <?php 
-$txt_preguntas = file_get_contents("../data/01.p.txt");
+$id_encuesta = $argv[1];	# id encuesta
+
+$txt_preguntas = file_get_contents("../data/".$id_encuesta.".p.txt");
 $arr = explode("---\n", $txt_preguntas);
 $arr_cabecera_tmp = $arr[0];
 $arr_cuerpo_tmp = $arr[1];
@@ -26,18 +28,16 @@ for ($i=0; $i<sizeof($arr_cuerpo_tmp); $i++){
 <!DOCTYPE html>
 <html lang="es" prefix="og: http://ogp.me/ns#">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<meta name="description" content="Encuesta alumnado">
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/votacion.css">
-	<script type="text/javascript" src="js/voto.js"></script>
-	<title>Encuesta alumnado</title>
-	</head>
-	<body data-id="<?php echo $arr_cabecera["id"]; ?>">
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Encuesta alumnado">
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+<link rel="stylesheet" type="text/css" href="css/votacion.css">
+<script type="text/javascript" src="js/voto.js"></script>
+<title>Encuesta alumnado</title>
+</head>
+<body data-id="<?php echo $id_encuesta; ?>">
 
 <main>
 <section id="preguntas">

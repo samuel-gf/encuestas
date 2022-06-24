@@ -9,15 +9,12 @@ $data = json_decode($json);
 
 // Este fichero es llamado varias veces, solo una de ellas pasa los datos que necesitamos
 if (isset($data->resp)){
-	error_log("\n\n\n\n\n\n\n**************************************************\n\n\n");
-
-
 	$s = "";
 	for ($i=1; $i<sizeof($data->resp); $i++){
 		$s .= (isset($data->resp[$i])?strval($data->resp[$i]):"_")." ";
 	}
 	$s = str_replace(array("\r","\n"), "", trim($s)).PHP_EOL;
-	error_log("**$s**");
+	//error_log("**$s**");
 
 	$f = fopen("../data/01.r.txt", "a");
 	fwrite($f, $s);

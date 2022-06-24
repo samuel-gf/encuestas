@@ -1,3 +1,4 @@
+1.06	Muestra una encuesta u otra en función del parámetro en el proceso .php -> .html
 1.05	Una vez votado en una encuesta no se puede volver a votar
 1.04	Puede desmarcar un elemento seleccionado. Las respuestas se memorizan en cada item
 1.03	Cabecera dentro de fichero de preguntas y respuestas y nueva organización ficheros de P y R
