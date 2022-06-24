@@ -11,7 +11,8 @@ $data = json_decode($json);
 if (isset($data->resp)){
 	$s = "";
 	for ($i=1; $i<sizeof($data->resp); $i++){
-		$s .= (isset($data->resp[$i])?strval($data->resp[$i]):"_")." ";
+		// El separador de campos es |
+		$s .= (isset($data->resp[$i])?strval($data->resp[$i]):"_")."|";
 	}
 	$s = str_replace(array("\r","\n"), "", trim($s)).PHP_EOL;
 	//error_log("**$s**");

@@ -6,12 +6,14 @@ var tmp;
 document.addEventListener('DOMContentLoaded', function(){ 
 	id_encuesta = document.querySelector("body").dataset.id;
 
+	/*
 	if (storage.getItem("terminada"+id_encuesta) == 1){
 		// Comprobar su la encuesta ha sido realizada previamente
 		document.querySelector("section#preguntas").style.display="none";
 		document.querySelector("section#terminado").style.display="block";
 		return;
 	}
+	*/
 
 	// Pinchar sobre una cara
 	var caras = document.querySelectorAll(".voto_item");

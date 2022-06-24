@@ -1,3 +1,4 @@
+1.07	Genera informe .md con respuestas
 1.06	Muestra una encuesta u otra en función del parámetro en el proceso .php -> .html
 1.05	Una vez votado en una encuesta no se puede volver a votar
 1.04	Puede desmarcar un elemento seleccionado. Las respuestas se memorizan en cada item
