@@ -1,0 +1,13 @@
+título: Encuesta al alumnado
+fecha: 24 de junio de 2022
+terminado: Muchas gracias por tu tiempo
+---
+u5: El profesor explica con claridad
+u5: El profesor es ordenado y sistemático en sus explicaciones
+u5: El orden en el que el profesor da la clase me facilita su seguimiento
+u5: Es fácil tomar apuntes con este profesor
+u5: El profesor mantiene un ritmo de exposición correcto
+u5: El profesor demuestra, con sus explicaciones, que se ha preparado las clases
+u5: El profesor demuestra un buen dominio de la materia que explica
+u5: El profesor hace la clase amena y divertida
+u5: El profesor consigue mantener mi atención durante las clases

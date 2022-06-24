@@ -12,28 +12,54 @@
 	</head>
 <body>
 
+<?php 
+$txt_preguntas = file_get_contents("../data/01.p.txt");
+$arr = explode("---\n", $txt_preguntas);
+$arr_cabecera_tmp = $arr[0];
+$arr_cuerpo_tmp = $arr[1];
+
+# $arr_cabecera contiene la cabecera del fichero de preguntas
+$arr_cabecera_tmp = explode("\n", $arr_cabecera_tmp);
+array_pop($arr_cabecera_tmp);	# El último elemento está siempre vacío así que lo quitamos
+$arr_cabecera = array();
+for ($i=0; $i<sizeof($arr_cabecera_tmp); $i++){
+	$registro = explode(":", $arr_cabecera_tmp[$i]);
+	$arr_cabecera[trim($registro[0])] = trim($registro[1]);
+}
+
+# $arr_cuerpo contiene el conjunto de preguntas
+$arr_cuerpo_tmp = explode("\n", $arr_cuerpo_tmp);
+array_pop($arr_cuerpo_tmp);		# El último elemento está siempre vacío así que lo quitamos
+$arr_cuerpo = array();
+for ($i=0; $i<sizeof($arr_cuerpo_tmp); $i++){
+	$registro = explode(":", $arr_cuerpo_tmp[$i]);
+	$arr_cuerpo[$i+1]["tipo"] = trim($registro[0]);
+	$arr_cuerpo[$i+1]["enunciado"] = trim($registro[1]);
+}
+?>
 
 
 <main>
 <section id="preguntas">
-<header><h1>Encuesta alumnado</h1></header>
+<header><h1><?php echo $arr_cabecera["título"]; ?></h1></header>
 
 <ol>
 <?php 
-	$txt = file_get_contents("../preguntas/01.txt");
-	$arr = explode("\n", $txt);
-	for ($i=0; $arr[$i] !== ""; $i++){
+	for ($i=0; $i<sizeof($arr_cuerpo); $i++){
+		switch($arr_cuerpo[$i+1]["tipo"]){
+		case "u5":
+			echo "<li>".$arr_cuerpo[$i+1]["enunciado"]."</li>\n";
+			echo "<div id='p".($i+1)."' class='voto' data-value=''>\n";
+			echo "<div id='p".($i+1)."-1' class='voto_item'>&#128534;</div>\n";
+			echo "<div id='p".($i+1)."-2' class='voto_item'>&#128551;</div>\n";
+			echo "<div id='p".($i+1)."-3' class='voto_item'>&#128528;</div>\n";
+			echo "<div id='p".($i+1)."-4' class='voto_item'>&#128512;</div>\n";
+			echo "<div id='p".($i+1)."-5' class='voto_item'>&#128151;</div>\n";
+			echo "</div>\n";
+			break;
+		}
+	}	// end for
 ?>
-
-	<li><?php echo $arr[$i]; ?></li>
-	<div id="p<?php echo $i+1; ?>" class="voto">
-		<div id="p<?php echo $i+1;?>-1" class="voto_item">&#128534;</div>
-		<div id="p<?php echo $i+1;?>-2" class="voto_item">&#128551;</div>
-		<div id="p<?php echo $i+1;?>-3" class="voto_item">&#128528;</div>
-		<div id="p<?php echo $i+1;?>-4" class="voto_item">&#128512;</div>
-		<div id="p<?php echo $i+1;?>-5" class="voto_item">&#128151;</div>
-	</div>
-<?php }	// end for ?>
 
 </ol>
 
@@ -41,11 +67,15 @@
 <div id="btn_terminar">Terminar encuesta</div>
 </section>	<!-- Preguntas -->
 
+
+
+
+
 <!-- ********************************************************* -->
 <section id="terminado">
 <header><h1>Encuesta terminada</h1></header>
 
-<p>Muchas gracias por tu tiempo</p>
+<p><?php echo $arr_cabecera["terminado"]; ?></p>
 </section>
 </main>
 

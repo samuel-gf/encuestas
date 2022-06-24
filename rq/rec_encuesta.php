@@ -19,7 +19,7 @@ if (isset($data->resp)){
 	$s = str_replace(array("\r","\n"), "", trim($s)).PHP_EOL;
 	error_log("**$s**");
 
-	$f = fopen("../respuestas/01.txt", "a");
+	$f = fopen("../data/01.r.txt", "a");
 	fwrite($f, $s);
 	fclose($f);
 }
