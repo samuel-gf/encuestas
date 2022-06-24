@@ -1,7 +1,18 @@
 var arr_resp = [];
+var id_encuesta = null;
+const storage = window.localStorage;
 var tmp;
 
 document.addEventListener('DOMContentLoaded', function(){ 
+	id_encuesta = document.querySelector("body").dataset.id;
+
+	if (storage.getItem("terminada"+id_encuesta) == 1){
+		// Comprobar su la encuesta ha sido realizada previamente
+		document.querySelector("section#preguntas").style.display="none";
+		document.querySelector("section#terminado").style.display="block";
+		return;
+	}
+
 	// Pinchar sobre una cara
 	var caras = document.querySelectorAll(".voto_item");
 	for (let i=0; i<caras.length; i++){
@@ -58,12 +69,11 @@ document.addEventListener('DOMContentLoaded', function(){
 				case 4:	// Terminado
 					document.querySelector("section#preguntas").style.display="none";
 					document.querySelector("section#terminado").style.display="block";
-					console.log("TERMINADO");
-
+					storage.setItem("terminada"+id_encuesta, 1);
 					break;
 			}
 		};
-		xhr.open("POST", "http://192.168.1.58:8080/rq/rec_encuesta.php");
+		xhr.open("POST", "http://localhost:8080/rq/rec_encuesta.php");
 		xhr.setRequestHeader("Content-Type", "application/json");
 		xhr.send(JSON.stringify(obj_post));
 

@@ -1,17 +1,3 @@
-	<!DOCTYPE html>
-<html lang="es" prefix="og: http://ogp.me/ns#">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<meta name="description" content="Encuesta alumnado">
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/votacion.css">
-	<script type="text/javascript" src="js/voto.js"></script>
-	<title>Encuesta alumnado</title>
-	</head>
-<body>
-
 <?php 
 $txt_preguntas = file_get_contents("../data/01.p.txt");
 $arr = explode("---\n", $txt_preguntas);
@@ -37,6 +23,20 @@ for ($i=0; $i<sizeof($arr_cuerpo_tmp); $i++){
 	$arr_cuerpo[$i+1]["enunciado"] = trim($registro[1]);
 }
 ?>
+<!DOCTYPE html>
+<html lang="es" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="Encuesta alumnado">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/votacion.css">
+	<script type="text/javascript" src="js/voto.js"></script>
+	<title>Encuesta alumnado</title>
+	</head>
+	<body data-id="<?php echo $arr_cabecera["id"]; ?>">
+
 
 
 <main>
@@ -77,6 +77,9 @@ for ($i=0; $i<sizeof($arr_cuerpo_tmp); $i++){
 
 <p><?php echo $arr_cabecera["terminado"]; ?></p>
 </section>
+
+
+
 </main>
 
 </body>
