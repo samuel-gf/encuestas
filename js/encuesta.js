@@ -89,11 +89,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 function deshabilita(item){
-	item.style.opacity = "0.15";
-	item.style.borderWidth = "0";
+	if (item != null){
+		item.style.opacity = "0.15";
+		item.style.borderWidth = "0";
+	}
 }
 
 function habilita(item){
-	item.style.opacity = "1";
-	item.style.borderWidth = "0";
+	if (item != null){
+		item.style.opacity = "1";
+		item.style.borderWidth = "0";
+	}
 }
