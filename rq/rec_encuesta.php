@@ -14,7 +14,7 @@ if (isset($data->resp)){
 		// El separador de campos es |
 		$s .= (isset($data->resp[$i])?strval($data->resp[$i]):"_")."|";
 	}
-	$s = str_replace(array("\r","\n"), "", trim($s)).PHP_EOL;
+	$s = str_replace(array("\r","\n"), "", trim($s, "| ")).PHP_EOL;
 	//error_log("**$s**");
 
 	$f = fopen("../data/01.r.txt", "a");
