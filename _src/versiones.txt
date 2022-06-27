@@ -1,3 +1,6 @@
+1.10	Item no falla cuando un item no existe en la función habilitar de .js
+1.09	Trim en la cadena que recoge la encuesta para no guardar el último separador de campo
+1.08	Pide confirmar antes de enviar la encuesta
 1.07	Genera informe .md con respuestas
 1.06	Muestra una encuesta u otra en función del parámetro en el proceso .php -> .html
 1.05	Una vez votado en una encuesta no se puede volver a votar
