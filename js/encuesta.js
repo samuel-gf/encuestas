@@ -56,28 +56,31 @@ document.addEventListener('DOMContentLoaded', function(){
 	// Terminar encuesta
 	var btn_terminar = document.getElementById("btn_terminar");
 	btn_terminar.addEventListener("click", function (){
-		let obj_post = {
-			resp: []
-		}
-		arr_resp.forEach(function (a, i){
-			obj_post.resp[i] = a;
-		});
-		let xhr = new XMLHttpRequest(); 
-		xhr.onreadystatechange = function (){
-			switch (xhr.readyState){
-				case 1:	// Leyendo
-					btn_terminar.innerHTML = "Enviando";
-					break;
-				case 4:	// Terminado
-					document.querySelector("section#preguntas").style.display="none";
-					document.querySelector("section#terminado").style.display="block";
-					storage.setItem("terminada"+id_encuesta, 1);
-					break;
+		let bConfirma = confirm("¿Desea enviar la encuesta?");
+		if (bConfirma){
+			let obj_post = {
+				resp: []
 			}
-		};
-		xhr.open("POST", "http://localhost:8080/rq/rec_encuesta.php");
-		xhr.setRequestHeader("Content-Type", "application/json");
-		xhr.send(JSON.stringify(obj_post));
+			arr_resp.forEach(function (a, i){
+				obj_post.resp[i] = a;
+			});
+			let xhr = new XMLHttpRequest(); 
+			xhr.onreadystatechange = function (){
+				switch (xhr.readyState){
+					case 1:	// Leyendo
+						btn_terminar.innerHTML = "Enviando";
+						break;
+					case 4:	// Terminado
+						document.querySelector("section#preguntas").style.display="none";
+						document.querySelector("section#terminado").style.display="block";
+						storage.setItem("terminada"+id_encuesta, 1);
+						break;
+				}
+			};
+			xhr.open("POST", "http://localhost:8080/rq/rec_encuesta.php");
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.send(JSON.stringify(obj_post));
+		}	// if confirmado bConfirma
 
 	});
 
